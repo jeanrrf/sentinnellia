@@ -10,7 +10,15 @@ const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Offset manual para compensar o header fixo
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
@@ -25,7 +33,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
       
       {/* Background Glows específicos da Hero */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-neon-900/20 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />

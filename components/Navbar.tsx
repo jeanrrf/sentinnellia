@@ -15,10 +15,34 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Início', href: '#home' },
     { name: 'Soluções', href: '#features' },
     { name: 'Projetos', href: '#projects' },
     { name: 'Sobre', href: '#about' },
   ];
+
+  // Função para lidar com o clique e scroll suave com offset
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      // Offset de 100px para o Navbar fixo não cobrir o título
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else if (href === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav 
@@ -29,8 +53,11 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         
         {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            <div className="w-8 h-8 bg-gradient-to-tr from-neon-600 to-neon-400 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+        <div 
+            className="flex items-center gap-2 cursor-pointer group" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+            <div className="w-8 h-8 bg-gradient-to-tr from-neon-600 to-neon-400 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.4)] group-hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] transition-all">
                 <span className="text-black font-bold text-lg">S</span>
             </div>
             <span className="text-xl font-bold tracking-tight text-white">
@@ -43,8 +70,9 @@ const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <a 
               key={link.name} 
-              href={link.href} 
-              className="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] relative after:content-[''] after:absolute after:w-0 after:h-px after:bg-neon-500 after:bottom-[-4px] after:left-0 after:transition-all hover:after:w-full"
             >
               {link.name}
             </a>
@@ -76,15 +104,15 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-900/95 backdrop-blur-xl border-b border-white/10"
+            className="md:hidden bg-dark-900/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.href}
-                  className="text-lg font-medium text-gray-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-lg font-medium text-gray-300 hover:text-neon-400 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -93,7 +121,7 @@ const Navbar: React.FC = () => {
                 href="https://github.com/jeanrrf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-neon-400 font-medium"
+                className="flex items-center gap-2 text-neon-400 font-medium pt-4 border-t border-white/10"
               >
                 <Github size={18} /> Acessar GitHub
               </a>
