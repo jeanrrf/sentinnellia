@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Features from './components/Features';
-import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Background from './components/Background';
+
+// Lazy loading para componentes "abaixo da dobra"
+const Features = React.lazy(() => import('./components/Features'));
+const Projects = React.lazy(() => import('./components/Projects'));
 
 function App() {
   return (
@@ -13,8 +15,14 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
-        <Projects />
+        <Suspense fallback={
+          <div className="w-full py-24 flex items-center justify-center text-neon-500/50 font-mono animate-pulse">
+            CARREGANDO MÓDULOS...
+          </div>
+        }>
+          <Features />
+          <Projects />
+        </Suspense>
       </main>
       <Footer />
     </div>

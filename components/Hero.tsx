@@ -1,26 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Database, Terminal, Activity, Shield, Code2, Cpu, ExternalLink, Brain } from 'lucide-react';
+import { Zap, Database, Terminal, Brain } from 'lucide-react';
+import { smoothScrollTo } from '../utils/scroll';
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
   const fullText = "LOADING AINEX PROTOCOL... > NEURAL AGENT CONNECTED";
-
-  // Hook simples para scroll suave
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      // Offset manual para compensar o header fixo
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
 
   useEffect(() => {
     let i = 0;
@@ -78,7 +63,7 @@ const Hero: React.FC = () => {
               </a>
               
               <button 
-                onClick={() => scrollToSection('features')}
+                onClick={() => smoothScrollTo('features')}
                 className="px-8 py-4 bg-transparent border border-white/10 text-white font-mono text-sm tracking-widest uppercase rounded-sm hover:border-neon-500/50 hover:bg-neon-500/5 transition-all flex items-center justify-center"
               >
                 Ver Protocolos

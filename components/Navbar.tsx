@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, ExternalLink } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { smoothScrollTo } from '../utils/scroll';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -21,27 +31,11 @@ const Navbar: React.FC = () => {
     { name: 'Sobre', href: '#about' },
   ];
 
-  // Função para lidar com o clique e scroll suave com offset
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-
     const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-
-    if (element) {
-      // Offset de 100px para o Navbar fixo não cobrir o título
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    } else if (href === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    smoothScrollTo(targetId);
   };
 
   return (
@@ -55,7 +49,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <div 
             className="flex items-center gap-2 cursor-pointer group" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => smoothScrollTo('home')}
         >
             <div className="w-8 h-8 bg-gradient-to-tr from-neon-600 to-neon-400 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.4)] group-hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] transition-all">
                 <span className="text-black font-bold text-lg">S</span>
@@ -92,6 +86,7 @@ const Navbar: React.FC = () => {
         <button 
           className="md:hidden text-gray-300 hover:text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
