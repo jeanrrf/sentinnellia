@@ -12,6 +12,7 @@ const Background: React.FC = () => {
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
+    let animationFrameId: number;
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
@@ -19,97 +20,78 @@ const Background: React.FC = () => {
     };
     window.addEventListener('resize', resize);
 
-    // Configuração da Chuva Digital
-    const fontSize = 14;
-    const columns = Math.ceil(width / fontSize); // Número de colunas baseado na largura
-    const drops: number[] = [];
-    
-    // Inicializa as gotas em posições aleatórias acima da tela para início mais orgânico
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * -100; 
-    }
-
-    const chars = "01AINEXSENTINNELL___"; // Caracteres personalizados da marca
+    // Partículas de poeira digital (Digital Dust) - Subindo suavemente
+    const particles = Array.from({ length: 40 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 1.5 + 0.5, // Tamanho variado
+      speedY: Math.random() * 0.3 + 0.1, // Velocidade lenta
+      opacity: Math.random() * 0.4 + 0.1 // Opacidade sutil
+    }));
 
     const draw = () => {
-      // Cria o efeito de rastro (fade out)
-      // Um alpha muito baixo (0.05) cria rastros longos, alto (0.1) rastros curtos
-      ctx.fillStyle = 'rgba(2, 2, 2, 0.08)'; 
-      ctx.fillRect(0, 0, width, height);
+      // Limpa o canvas mantendo transparência total
+      ctx.clearRect(0, 0, width, height);
 
-      ctx.font = `bold ${fontSize}px "Fira Code", monospace`;
-      
-      for (let i = 0; i < drops.length; i++) {
-        // Seleciona caractere
-        const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillStyle = '#4ade80'; // Neon Green 400
+
+      particles.forEach((p) => {
+        ctx.globalAlpha = p.opacity;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Movimento ascendente (Data Flow)
+        p.y -= p.speedY;
         
-        // Efeito "Glint": Alguns caracteres brilham mais (cabeça do stream)
-        const isHead = Math.random() > 0.98;
-        
-        if (isHead) {
-             ctx.fillStyle = '#ffffff'; // Ponta branca brilhante
-             ctx.shadowBlur = 10;
-             ctx.shadowColor = '#ffffff';
-        } else if (Math.random() > 0.90) {
-             ctx.fillStyle = '#4ade80'; // Neon forte esporádico
-             ctx.shadowBlur = 5;
-             ctx.shadowColor = '#4ade80';
-        } else {
-             ctx.fillStyle = '#14532d'; // Verde escuro (matrix base)
-             ctx.shadowBlur = 0;
+        // Loop infinito
+        if (p.y < 0) {
+          p.y = height;
+          p.x = Math.random() * width;
         }
+      });
 
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-
-        ctx.fillText(text, x, y);
-
-        // Resetar gota ao chegar no fim ou aleatoriamente para variar densidade
-        if (y > height && Math.random() > 0.985) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-
-      requestAnimationFrame(draw);
+      animationFrameId = requestAnimationFrame(draw);
     };
 
-    const animationId = requestAnimationFrame(draw);
+    draw();
 
     return () => {
-      cancelAnimationFrame(animationId);
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] bg-black overflow-hidden">
-      {/* Canvas Animado */}
-      <canvas 
-        ref={canvasRef} 
-        className="absolute inset-0 w-full h-full opacity-25 mix-blend-screen" 
-      />
-      
-      {/* Camada de Profundidade (Vignette) - Cria o foco central e o "infinito" nas bordas */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_95%)] pointer-events-none"></div>
-      
-      {/* Grid Sutil Cyberpunk no fundo */}
+    <div className="fixed inset-0 z-[-1] bg-[#050505] overflow-hidden">
+      {/* 1. Camada GLOSS MORPH (CSS Puro - Garantia de visualização) */}
+      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-neon-900/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-900/10 rounded-full blur-[100px] animate-pulse-slow mix-blend-screen pointer-events-none" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-[30%] left-[20%] w-[40vw] h-[40vw] bg-neon-600/5 rounded-full blur-[80px] animate-float pointer-events-none" />
+
+      {/* 2. Camada DIGITAL GRID (Perspectiva Infinita) */}
       <div 
         className="absolute inset-0 opacity-[0.15] pointer-events-none"
         style={{
-            backgroundImage: `linear-gradient(to right, #15803d 1px, transparent 1px),
-                              linear-gradient(to bottom, #15803d 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
-            transform: 'perspective(500px) rotateX(60deg) translateY(-100px) scale(2)',
-            transformOrigin: 'top center',
-            maskImage: 'linear-gradient(to bottom, transparent, black 40%, transparent 90%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 40%, transparent 90%)'
+          backgroundImage: `
+            linear-gradient(to right, #22c55e 1px, transparent 1px),
+            linear-gradient(to bottom, #22c55e 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          // Mascara radial para focar no centro e sumir nas bordas (Infinite feel)
+          maskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)'
         }}
-      ></div>
+      />
 
-      {/* Noise Texture para aspecto "Filme/Digital" */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
+      {/* 3. Camada CANVAS PARTICLES (Data Dust) */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+
+      {/* 4. Camada VIGNETTE (Foco & Profundidade) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020202_100%)] pointer-events-none opacity-90" />
+      
+      {/* 5. Camada TEXTURA (Noise SVG Inline - Carregamento instantâneo) */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
     </div>
   );
 };
