@@ -128,13 +128,13 @@ const Hero: React.FC = () => {
                         <div className="absolute top-0 right-0 p-2">
                             <Terminal size={14} className="text-gray-600" />
                         </div>
-                        <p className="text-white">>> AINEX: Initializing Context...</p>
-                        <p>>> Memory Tier: GOLD [ACTIVE]</p>
-                        <p>>> Loading User Preferences...</p>
-                        <p>>> Agent Persona: EXPERT</p>
-                        <p>>> Connecting to Qlik Codex Database...</p>
-                        <p className="text-neon-500">>> ACCESS GRANTED.</p>
-                        <p>>> Ready for instructions.</p>
+                        <p className="text-white">&gt;&gt; AINEX: Initializing Context...</p>
+                        <p>&gt;&gt; Memory Tier: GOLD [ACTIVE]</p>
+                        <p>&gt;&gt; Loading User Preferences...</p>
+                        <p>&gt;&gt; Agent Persona: EXPERT</p>
+                        <p>&gt;&gt; Connecting to Qlik Codex Database...</p>
+                        <p className="text-neon-500">&gt;&gt; ACCESS GRANTED.</p>
+                        <p>&gt;&gt; Ready for instructions.</p>
                         <p className="animate-pulse">_</p>
                     </div>
 
