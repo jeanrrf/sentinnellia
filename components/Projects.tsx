@@ -74,7 +74,7 @@ const projects = [
   {
     title: "Gerador de Recibos",
     desc: "Ferramenta essencial para freelancers. Rápida, prática e com design profissional automatizado.",
-    link: "https://vercel.com/jeans-projects-6921150e/v0-recibo-gerador-para-freelancers",
+    link: "https://v0-sentinnell-pro-invoice.vercel.app/",
     icon: <Receipt size={32} />,
     tags: ["Utility", "Freelance", "Tools"]
   }
@@ -111,12 +111,15 @@ const Projects: React.FC = () => {
                 project.highlight ? 'border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.15)] md:col-span-2 md:flex-row' : ''
               }`}
             >
+              {/* Gloss Morph Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
               {/* Top Accent Line */}
               <div className={`h-1 w-full absolute top-0 left-0 z-20 transition-opacity duration-300 ${
                   project.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-transparent opacity-100' : 'bg-gradient-to-r from-neon-600 to-transparent opacity-0 group-hover:opacity-100'
               }`}></div>
               
-              <div className={`p-8 flex-1 flex flex-col ${project.highlight ? 'md:justify-center' : ''}`}>
+              <div className={`p-8 flex-1 flex flex-col ${project.highlight ? 'md:justify-center' : ''} relative z-10`}>
                 <div className="flex justify-between items-start mb-6">
                   <div className={`p-3 rounded-lg transition-colors ${
                       project.color === 'blue' 

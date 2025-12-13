@@ -21,10 +21,10 @@ const Background: React.FC = () => {
     window.addEventListener('resize', resize);
 
     // Partículas de poeira digital (Digital Dust) - Subindo suavemente
-    const particles = Array.from({ length: 40 }, () => ({
+    const particles = Array.from({ length: 50 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 1.5 + 0.5, // Tamanho variado
+      size: Math.random() * 1.5 + 0.2, // Tamanho variado
       speedY: Math.random() * 0.3 + 0.1, // Velocidade lenta
       opacity: Math.random() * 0.4 + 0.1 // Opacidade sutil
     }));
@@ -63,24 +63,27 @@ const Background: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] bg-[#050505] overflow-hidden">
+    <div className="fixed inset-0 z-[-1] bg-[#020202] overflow-hidden">
       {/* 1. Camada GLOSS MORPH (CSS Puro - Garantia de visualização) */}
-      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-neon-900/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-neon-900/10 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-900/10 rounded-full blur-[100px] animate-pulse-slow mix-blend-screen pointer-events-none" style={{ animationDelay: '2s' }} />
       <div className="absolute top-[30%] left-[20%] w-[40vw] h-[40vw] bg-neon-600/5 rounded-full blur-[80px] animate-float pointer-events-none" />
 
-      {/* 2. Camada DIGITAL GRID (Perspectiva Infinita) */}
+      {/* 2. Camada INFINITE GRID (Perspectiva Infinita com Animação) */}
       <div 
-        className="absolute inset-0 opacity-[0.15] pointer-events-none"
+        className="absolute inset-0 opacity-[0.15] pointer-events-none animate-infinite-grid"
         style={{
           backgroundImage: `
             linear-gradient(to right, #22c55e 1px, transparent 1px),
             linear-gradient(to bottom, #22c55e 1px, transparent 1px)
           `,
           backgroundSize: '40px 40px',
+          // Perspectiva fake usando transform
+          transform: 'perspective(500px) rotateX(10deg) scale(1.5)',
+          transformOrigin: 'top center',
           // Mascara radial para focar no centro e sumir nas bordas (Infinite feel)
-          maskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)'
+          maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
         }}
       />
 
@@ -91,7 +94,7 @@ const Background: React.FC = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020202_100%)] pointer-events-none opacity-90" />
       
       {/* 5. Camada TEXTURA (Noise SVG Inline - Carregamento instantâneo) */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
     </div>
   );
 };
