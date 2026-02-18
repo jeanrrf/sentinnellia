@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Mentorship from './components/Mentorship';
+import Ecosystem from './components/Ecosystem';
 import Footer from './components/Footer';
 import Background from './components/Background';
 
@@ -17,6 +18,7 @@ function App() {
       <main>
         <Hero />
         <Mentorship />
+        <Ecosystem />
         <Suspense fallback={
           <div className="w-full py-24 flex items-center justify-center text-neon-500/50 font-mono animate-pulse">
             CARREGANDO MÓDULOS...
