@@ -5,33 +5,33 @@ import { motion } from 'framer-motion';
 const featuresData = [
   {
     icon: <Cpu size={28} />,
-    title: "Automação com IA",
-    desc: "Fluxos autônomos e resilientes que transformam tarefas manuais em processos inteligentes."
+    title: "Automação Arquitetural",
+    desc: "Sistemas autônomos com capacidade de raciocínio, processamento paralelo e otimização contínua."
   },
   {
     icon: <Search size={28} />,
-    title: "Pesquisa Aplicada",
-    desc: "Estado da arte acadêmico aplicado diretamente nas necessidades reais do seu negócio."
+    title: "Pesquisa de Vanguarda",
+    desc: "Investigação aplicada em arquitetura de sistemas, machine learning e otimização complexa."
   },
   {
     icon: <Clock size={28} />,
-    title: "Eficiência Potencializada",
-    desc: "Redução drástica de tempo operacional, liberando sua equipe para trabalho estratégico."
+    title: "Performance de Ponta",
+    desc: "Infraestrutura otimizada para alta throughput, latência mínima e escalabilidade extrema."
   },
   {
     icon: <Users size={28} />,
-    title: "Design Centrado no Usuário",
-    desc: "UX fluida e intuitiva, pensada para pessoas reais com necessidades concretas."
+    title: "Experiência Imersiva",
+    desc: "Interfaces sofisticadas que equilibram elegância visual com funcionalidade de classe mundial."
   },
   {
     icon: <ShieldCheck size={28} />,
-    title: "Qualidade Robusta",
-    desc: "Código resiliente, testes rigorosos e padrões de execução de classe mundial."
+    title: "Engenharia Refinada",
+    desc: "Arquitetura resiliente, testes rigorosos, segurança de ponta e padrões de execução SOTA."
   },
   {
     icon: <BarChart3 size={28} />,
-    title: "Impacto Mensurado",
-    desc: "Métricas claras que demonstram ROI desde o primeiro dia de implementação."
+    title: "Resultados Comprovados",
+    desc: "Impacto quantificável, ROI demonstrável e contribuição estratégica ao crescimento exponencial."
   }
 ];
 
@@ -41,14 +41,14 @@ const Features: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block text-neon-400 font-semibold text-sm mb-4 bg-neon-500/10 px-4 py-2 rounded-full border border-neon-500/30">
-            ⚡ SOLUÇÕES PROPRIETÁRIAS
+            ⚡ INOVAÇÕES COMPLEXAS SOTA
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Projetos Desenhados e <span className="text-neon-400">Desenvolvidos</span><br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-400 to-cyan-400">Pela Sentinnell IA</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Soluções inovadoras que transformam ideias em resultados mensuráveis com excelência técnica, design robusto e aplicação prática de inteligência artificial.
+            Inovações complexas de ponta que transformam ideias em resultados mensuráveis através de arquitetura robusta, design refinado e inteligência artificial de vanguarda. Cada projeto é um marco de excelência técnica e impacto estratégico.
           </p>
         </div>
 

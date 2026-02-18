@@ -88,8 +88,8 @@ const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <span className="text-neon-500 font-mono text-sm tracking-wider mb-2 block">PORTFÓLIO & SISTEMAS</span>
-            <h2 className="text-4xl font-bold text-white">Nossas <span className="text-neon-500">Soluções</span></h2>
+            <span className="text-neon-500 font-mono text-sm tracking-wider mb-2 block">PORTFÓLIO & INOVAÇÕES COMPLEXAS</span>
+            <h2 className="text-4xl font-bold text-white">Projetos <span className="text-neon-500">Desenhados e Desenvolvidos pela Sentinnell IA</span></h2>
           </div>
           <a href="https://github.com/jeanrrf" target="_blank" className="text-gray-400 hover:text-white flex items-center gap-2 text-sm border-b border-gray-700 hover:border-white pb-1 transition-all">
             Ver repositórios no GitHub <ExternalLink size={14} />
