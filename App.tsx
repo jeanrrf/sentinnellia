@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import PortfolioHighlight from './components/PortfolioHighlight';
 import Mentorship from './components/Mentorship';
 import Ecosystem from './components/Ecosystem';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <PortfolioHighlight />
         <Mentorship />
         <Ecosystem />
         <Suspense fallback={
