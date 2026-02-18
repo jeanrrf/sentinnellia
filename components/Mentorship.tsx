@@ -3,7 +3,7 @@ import { BookOpen, Users, Zap, Code } from 'lucide-react';
 
 export default function Mentorship() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
+    <section id="mentorship" className="relative py-24 px-6 overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-neon-500/5 to-transparent pointer-events-none" />
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-neon-500/10 rounded-full blur-3xl" />

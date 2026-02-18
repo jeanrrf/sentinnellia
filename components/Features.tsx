@@ -40,9 +40,9 @@ const Features: React.FC = () => {
     <section id="features" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Nossa <span className="text-neon-500">Suite de IA</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Projetos Desenhados e <span className="text-neon-500">Desenvolvidos pela Sentinnell IA</span></h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Projetada para times que buscam performance extrema e redução de custos operacionais.
+            Soluções inovadoras que transformam ideias em resultados mensuráveis com excelência técnica e design robusto.
           </p>
         </div>
 
