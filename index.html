@@ -3,14 +3,77 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sentinnelle IA | Protocolo AINEX</title>
-    
-    <!-- FAVICON & ICONS (SVG Data URI) -->
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  SEO PRIMÁRIO                                                      -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <title>Sentinnelle IA | Mentoria Gratuita em IA e Vibe Coding · Protocolo AINEX</title>
+    <meta name="description" content="Aprenda a desenvolver com Inteligência Artificial Generativa na mentoria gratuita da Sentinnelle IA. Projetos reais com NVIDIA Cloud e Google Developers. Vagas limitadas — inscreva-se agora!" />
+    <meta name="keywords" content="mentoria gratuita IA, vibe coding, inteligência artificial, NVIDIA Cloud, Google Developers, mentoria programação, contato leads, aprender IA, agentes inteligentes, Sentinnelle IA" />
+    <meta name="author" content="Sentinnelle IA — Jean R. Ferreira" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sentinnellia.vercel.app/" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  OPEN GRAPH (Redes Sociais / WhatsApp)                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sentinnellia.vercel.app/" />
+    <meta property="og:title" content="Sentinnelle IA | Mentoria Gratuita em IA e Vibe Coding" />
+    <meta property="og:description" content="Aprenda Vibe Coding com IA Generativa, NVIDIA Cloud e Google. Mentoria 100% ao vivo. Vagas limitadas!" />
+    <meta property="og:image" content="https://sentinnellia.vercel.app/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Sentinnelle IA" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ParadoxSiliconO" />
+    <meta name="twitter:title" content="Sentinnelle IA | Mentoria Gratuita IA e Vibe Coding" />
+    <meta name="twitter:description" content="Aprenda a desenvolver com IA Generativa. Mentoria ao vivo — vagas limitadas." />
+    <meta name="twitter:image" content="https://sentinnellia.vercel.app/og-image.png" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  SCHEMA.ORG JSON-LD — Organization + ContactPoint                 -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sentinnelle IA",
+      "url": "https://sentinnellia.vercel.app",
+      "logo": "https://sentinnellia.vercel.app/favicon.svg",
+      "description": "Mentoria em Inteligência Artificial Generativa, Vibe Coding e Deploy em Cloud.",
+      "sameAs": [
+        "https://github.com/jeanrrf",
+        "https://www.linkedin.com/in/sentinnellia/",
+        "https://www.youtube.com/@ParadoxodoSilicio",
+        "https://x.com/ParadoxSiliconO"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "sentinnellia@gmail.com",
+        "telephone": "+55-48-99193-7304",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese",
+        "url": "https://sentinnellia.vercel.app/mentoria"
+      }
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  FAVICON & ICONS                                                   -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='64' height='64' rx='16' fill='%23050505'/%3E%3Cpath d='M38 4L14 34H30L26 60L50 26H34L38 4Z' fill='%2322c55e'/%3E%3Crect x='0.5' y='0.5' width='63' height='63' rx='15.5' stroke='%2322c55e' stroke-opacity='0.5'/%3E%3C/svg%3E" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='64' height='64' rx='16' fill='%23000000'/%3E%3Cpath d='M38 4L14 34H30L26 60L50 26H34L38 4Z' fill='%2322c55e'/%3E%3C/svg%3E" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  FONTS & TAILWIND                                                  -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -58,6 +121,10 @@
         }
       }
     </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  STYLES                                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
     <style>
       body {
         background-color: #020202;
@@ -65,66 +132,54 @@
         overflow-x: hidden;
       }
       /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #222;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #22c55e;
-      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0a0a0a; }
+      ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
 
-      /* Gloss Morph Style */
+      /* Glassmorphism */
       .glass-card {
-        background: linear-gradient(145deg, rgba(15, 15, 15, 0.7) 0%, rgba(5, 5, 5, 0.4) 100%);
+        background: linear-gradient(145deg, rgba(15,15,15,0.7) 0%, rgba(5,5,5,0.4) 100%);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         position: relative;
         overflow: hidden;
       }
-      
-      /* Brilho superior (Gloss Edge) */
       .glass-card::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: 0; left: 0; right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         opacity: 0.6;
         pointer-events: none;
       }
-
-      /* Reflexo sutil */
       .glass-card::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 100%);
         pointer-events: none;
         z-index: 1;
       }
-
       .glass-card-strong {
-        background: rgba(5, 5, 5, 0.9);
+        background: rgba(5,5,5,0.9);
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
-        border: 1px solid rgba(34, 197, 94, 0.3);
-        box-shadow: 0 0 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(34, 197, 94, 0.05);
+        border: 1px solid rgba(34,197,94,0.3);
+        box-shadow: 0 0 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(34,197,94,0.05);
       }
+
+      /* Lazy loading transition */
+      img[loading="lazy"] { opacity: 0; transition: opacity 0.3s; }
+      img[loading="lazy"].loaded { opacity: 1; }
     </style>
-  <script type="importmap">
+
+    <!-- Import map for ESM modules -->
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
@@ -132,14 +187,23 @@
     "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/": "https://esm.sh/react-dom@18.2.0/",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
     "lucide-react": "https://esm.sh/lucide-react@0.454.0?deps=react@18.2.0",
     "framer-motion": "https://esm.sh/framer-motion@11.11.11?deps=react@18.2.0,react-dom@18.2.0"
   }
 }
-</script>
-</head>
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  TIDIO CHATBOT (Opcional)                                          -->
+    <!--  1. Crie conta em: https://www.tidio.com/                         -->
+    <!--  2. Substitua YOUR_TIDIO_PUBLIC_KEY pelo seu Public Key            -->
+    <!--  3. Descomente a linha abaixo                                     -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- <script src="//code.tidio.co/YOUR_TIDIO_PUBLIC_KEY.js" async></script> -->
   </body>
 </html>

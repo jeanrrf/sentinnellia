@@ -7,20 +7,20 @@ export default function PortfolioHighlight() {
   const highlights = [
     {
       icon: <Award size={32} />,
-      title: 'Treinamento Especializado',
-      description: 'Do zero ao primeiro deploy com GitHub Copilot gratuito',
+      title: 'Do Setup ao Deploy',
+      description: 'Curso guiado passo a passo até o deploy na Vercel',
       color: 'from-amber-500 to-orange-500'
     },
     {
       icon: <Users size={32} />,
       title: 'Aulas ao Vivo',
-      description: 'Sessões interativas via Google Meet, não gravadas',
+      description: '100% ao vivo via Google Meet com interação real',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: <Rocket size={32} />,
-      title: 'IA em Código',
-      description: 'Revolução da Inteligência em Código e ecossistema',
+      title: '10 Cloud Providers',
+      description: 'Cobertura das principais provedoras de cloud',
       color: 'from-neon-500 to-green-500'
     }
   ];
@@ -37,7 +37,7 @@ export default function PortfolioHighlight() {
         >
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-neon-500/10 rounded-full blur-3xl -z-10" />
-          
+
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">

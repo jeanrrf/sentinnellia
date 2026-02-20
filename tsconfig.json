@@ -10,8 +10,12 @@
       "DOM.Iterable"
     ],
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "types": [
-      "node"
+      "node",
+      "framer-motion"
     ],
     "moduleResolution": "bundler",
     "isolatedModules": true,
