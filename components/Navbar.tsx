@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Fingerprint, FolderCode, Github, Globe, GraduationCap, Home, Menu, MessageSquare, PhoneCall, Settings, X } from 'lucide-react';
+import { Fingerprint, FolderCode, Github, Globe, GraduationCap, Home, Menu, MessageSquare, PhoneCall, X } from 'lucide-react';
 import { useEffect, useState, type FC } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { smoothScrollTo } from '../utils/scroll';
@@ -32,7 +32,6 @@ const Navbar: FC = () => {
     { name: 'Início', href: '/', isRoute: true, icon: <Home size={14} /> },
     { name: 'Mentoria', href: '/mentoria', isRoute: true, icon: <GraduationCap size={14} /> },
     { name: 'Ecossistema', href: '#ecosystem', isRoute: false, icon: <Globe size={14} /> },
-    { name: 'Soluções', href: '#features', isRoute: false, icon: <Settings size={14} /> },
     { name: 'Projetos', href: '#projects', isRoute: false, icon: <FolderCode size={14} /> },
     { name: 'Contato', href: '#about', isRoute: false, icon: <PhoneCall size={14} /> },
   ];

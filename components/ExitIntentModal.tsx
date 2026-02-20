@@ -40,7 +40,6 @@ async function saveMiniLead(nome: string, email: string) {
                 nivel: 'N/A',
                 mensagem: '[Lead capturado via Pop-up de Saída]',
                 data_hora: new Date().toLocaleString('pt-BR'),
-                to_email: 'sentinnellia@gmail.com',
             },
             EMAILJS_PUBLIC_KEY
         );

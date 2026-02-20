@@ -170,7 +170,6 @@ const LeadPage: FC = () => {
                     nivel: formData.nivel,
                     mensagem: formData.mensagem || '(sem mensagem)',
                     data_hora: new Date().toLocaleString('pt-BR'),
-                    to_email: 'sentinnellia@gmail.com',
                 },
                 EMAILJS_PUBLIC_KEY
             );
@@ -270,17 +269,6 @@ const LeadPage: FC = () => {
                                     <span className="text-gray-300 text-sm">{text}</span>
                                 </div>
                             ))}
-                        </div>
-
-                        {/* Dashboard Link for admin */}
-                        <div className="mt-6 p-4 bg-white/5 border border-white/10 rounded-2xl">
-                            <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest font-mono">Admin</p>
-                            <Link
-                                to="/leads-dashboard"
-                                className="text-neon-400 hover:text-neon-300 text-sm font-medium flex items-center gap-2 transition-colors"
-                            >
-                                📊 Ver Dashboard de Leads →
-                            </Link>
                         </div>
                     </motion.div>
 
