@@ -7,9 +7,11 @@ const Ecosystem = () => {
       title: '🌐 ECOSSISTEMA SENTINNELL',
       color: 'from-blue-500 to-cyan-500',
       items: [
+        { icon: '⭐', name: 'AGÊNCIA PICFUN (NOVO)', url: 'https://www.agenciapicfun.com.br/' },
+        { icon: '💎', name: 'SENTINNELL BRANDS', url: 'https://sentinnellbrands.vercel.app/' },
         { icon: '🛡️', name: 'SENTINNELL IA', url: 'https://sentinnellia.vercel.app/' },
-        { icon: '🛡️', name: 'PROTOCOLO AINEX', url: 'https://brandjean.vercel.app/' },
-        { icon: '🛡️', name: 'QLIK CODEX IA', url: 'https://sentinnellcodex.vercel.app/' },
+        { icon: '🔐', name: 'PROTOCOLO AINEX', url: 'https://brandjean.vercel.app/' },
+        { icon: '⚡', name: 'QLIK CODEX IA', url: 'https://sentinnellcodex.vercel.app/' },
       ]
     },
     {

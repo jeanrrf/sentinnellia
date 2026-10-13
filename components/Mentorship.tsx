@@ -12,14 +12,14 @@ export default function Mentorship() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Main Title */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white selection:bg-neon-500/30">
-            Meu Treinamento e Mentoria em <span className="text-neon-500">Vibe Coding</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight selection:bg-neon-500/30">
+            Treinamento e Mentoria em <span className="text-neon-400">Vibe Coding</span>
           </h1>
 
           {/* Introduction */}
           <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-            Sou especialista em <span className="font-semibold text-neon-400">NVIDIA Cloud</span> e <span className="font-semibold text-neon-400">Google Developers</span>,
-            trazendo conhecimento de ponta para você aprender de forma prática e direto ao ponto.
+            Com <span className="text-white font-semibold">Jean Rosso</span>, especialista em <span className="font-semibold text-neon-400">NVIDIA Cloud</span> e <span className="font-semibold text-neon-400">Google Developers</span>,
+            trazendo conhecimento de ponta para você dominar Inteligência Artificial aplicada e arquitetura de agentes de forma prática.
           </p>
         </div>
 

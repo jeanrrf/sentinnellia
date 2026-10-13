@@ -1,14 +1,17 @@
 import React from 'react';
 import { Github, Mail, Phone, ExternalLink, Youtube, MessageCircle, FileText } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const footerSections = [
     {
       title: '⚡ Ecossistema Sentinnell',
       links: [
+        { label: 'Agência PicFun', url: 'https://www.agenciapicfun.com.br/', emoji: '📸' },
+        { label: 'Sentinnell Brands', url: 'https://sentinnellbrands.vercel.app/', emoji: '💎' },
         { label: 'Sentinnell IA', url: 'https://sentinnellia.vercel.app/', emoji: '🛡️' },
         { label: 'Protocolo Ainex', url: 'https://brandjean.vercel.app/', emoji: '🔐' },
-        { label: 'Qlik Codex IA', url: 'https://sentinnellcodex.vercel.app/', emoji: '💎' }
+        { label: 'Qlik Codex IA', url: 'https://sentinnellcodex.vercel.app/', emoji: '⚡' }
       ]
     },
     {
@@ -30,7 +33,7 @@ const Footer: React.FC = () => {
     {
       title: '🎓 Aprendizado',
       links: [
-        { label: 'Mentoria & Treinamento', url: '#mentorship', emoji: '📚' },
+        { label: 'Mentoria & Treinamento', url: '/mentoria', emoji: '📚' },
         { label: 'Documentação', url: '#projects', emoji: '📝' }
       ]
     }
@@ -45,21 +48,14 @@ const Footer: React.FC = () => {
           
           {/* Logo e Descrição */}
           <div className="flex flex-col gap-4 lg:col-span-1">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-tr from-neon-600 to-neon-400 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.5)]">
-                <span className="text-black font-bold text-lg">⚡</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-sm tracking-tight text-white">
-                  SENTINNELL <span className="text-neon-400">IA</span>
-                </span>
-                <span className="text-xs text-neon-400 font-medium">Revolução em IA</span>
-              </div>
-            </div>
+            <Logo size={36} showText={true} />
             <p className="text-sm text-gray-400 leading-relaxed">
-              Transformando o futuro através de inteligência artificial aplicada e design robusto.
+              Transformando o futuro através de inteligência artificial aplicada, Vibe Coding e sistemas cognitivos.
             </p>
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-gray-400">
+              Fundador & Lead Engineer: <span className="text-white font-medium">Jean Rosso</span>
+            </p>
+            <p className="text-xs text-gray-500">
               © {new Date().getFullYear()} Sentinnell IA. Todos os direitos reservados.
             </p>
           </div>

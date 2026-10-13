@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Brain, Database, Terminal, Zap } from 'lucide-react';
 import { useEffect, useState, type FC } from 'react';
 import { Link } from 'react-router-dom';
+import { LogoEmblem } from './Logo';
 
 const Hero: FC = () => {
   const [typedText, setTypedText] = useState('');
@@ -34,12 +35,12 @@ const Hero: FC = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Status Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-dark-800 border-l-2 border-neon-500 mb-8 font-mono text-xs text-neon-400 tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.1)]">
-              <Brain size={14} className="animate-pulse" />
-              AINEX PROTOCOL: ACTIVE
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg bg-dark-800/90 border border-cyan-500/30 mb-8 font-mono text-xs text-cyan-400 tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.15)] backdrop-blur-md">
+              <LogoEmblem size={18} />
+              <span>SIAW // PROTOCOLO AINEX ACTIVE</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 text-white tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-white tracking-tight">
               INTELIGÊNCIA <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-400 via-neon-200 to-white drop-shadow-[0_0_15px_rgba(34,197,94,0.5)]">
                 NEURAL EXPERT
@@ -81,13 +82,12 @@ const Hero: FC = () => {
         </div>
 
         {/* Lado Direito: Visualização HUD / Robusta */}
-        <div className="relative z-10 hidden lg:block h-[600px] w-full perspective-[2000px]">
+        <div className="relative z-10 hidden lg:block h-[600px] w-full">
           <motion.div
-            className="relative w-full h-full preserve-3d"
-            initial={{ opacity: 0, rotateY: -10 }}
-            animate={{ opacity: 1, rotateY: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            style={{ transformStyle: 'preserve-3d' }}
+            className="relative w-full h-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Main Core Interface */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[520px] glass-card-strong rounded-xl flex flex-col overflow-hidden z-20 transform transition-transform hover:scale-[1.02] duration-500">
@@ -154,9 +154,9 @@ const Hero: FC = () => {
 
             {/* Floating Elements (Depth) */}
             <motion.div
-              animate={{ y: [-10, 10, -10] }}
+              animate={{ y: [-8, 8, -8] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[10%] -right-[10%] w-64 glass-card p-4 rounded-lg z-10 border-l-4 border-neon-500"
+              className="absolute top-12 right-2 w-56 glass-card p-3.5 rounded-xl z-30 border-l-4 border-neon-500 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-2">
                 <span className="text-xs font-bold text-white">QLIK CODEX</span>

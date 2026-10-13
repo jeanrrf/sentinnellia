@@ -74,7 +74,7 @@ const CookieConsent: FC = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 120, opacity: 0 }}
                     transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-                    className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-[200] glass-card-strong rounded-2xl p-5 border border-neon-500/20 shadow-2xl"
+                    className="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md z-[200] glass-card-strong rounded-2xl p-5 border border-neon-500/20 shadow-2xl"
                     role="dialog"
                     aria-label="Aviso de Cookies"
                 >

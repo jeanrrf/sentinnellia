@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" fill="none">
+  <defs>
+    <linearGradient id="silver-main-full" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#E2E8F0" />
+      <stop offset="60%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="silver-dark-full" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CBD5E1" />
+      <stop offset="50%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="silver-light-full" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748B" />
+      <stop offset="50%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <linearGradient id="cyan-glow-full" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#00B4D8" />
+    </linearGradient>
+
+    <filter id="cyan-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00E5FF" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Emblem Icon centered at top -->
+  <g transform="translate(100, 15) scale(1.0)">
+    <!-- Left Major Diagonal Arm -->
+    <path d="M50 4 L14 78 L31 78 L53 32 Z" fill="url(#silver-main-full)" />
+    <!-- Right Upper Diagonal Leg -->
+    <path d="M50 4 L53 32 L78 72 L93 62 Z" fill="url(#silver-dark-full)" />
+    <!-- Inner Cyan Glowing Diagonal Beam -->
+    <path d="M51 34 L67 60 L60 67 L44 41 Z" fill="url(#cyan-glow-full)" filter="url(#cyan-glow-filter)" />
+    <!-- Lower Right Corner Cyan Accent Triangle -->
+    <path d="M87 78 L97 78 L92 68 Z" fill="url(#cyan-glow-full)" filter="url(#cyan-glow-filter)" />
+    <!-- Inner Lower Chevron Fold -->
+    <path d="M44 42 L31 78 L49 78 L63 56 Z" fill="url(#silver-light-full)" />
+  </g>
+
+  <!-- Typography Lockup -->
+  <text x="150" y="145" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="4">SENTINNELL</text>
+  <text x="150" y="175" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="14" fill="#E2E8F0" letter-spacing="5">IA WORKSPACE</text>
+  <text x="150" y="205" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="16" fill="#00E5FF" letter-spacing="8">SIAW</text>
+</svg>
