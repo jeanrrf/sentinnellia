@@ -25,15 +25,15 @@ const QlikLogo = () => (
 const projects = [
   {
     title: "Agência PicFun",
-    desc: "Ecossistema PicFun para criadoras. Conectamos criadoras a uma operação com estratégia de conteúdo, posicionamento, suporte e formação para crescer em lives, TikTok e Instagram com consistência. Da triagem à Academy, avançamos com direção, performance e monetização sustentável: 'Você mantém sua autenticidade. A PicFun entra com método, acompanhamento e operação para transformar presença digital em carreira escalável.'",
+    desc: "Ecossistema estratégico para criadoras de conteúdo. Operação, suporte e Academy para monetização e crescimento consistente em lives e redes sociais.",
     link: "https://www.agenciapicfun.com.br/",
     domain: "agenciapicfun.com.br",
     icon: <Camera size={32} className="text-pink-400" />,
-    tags: ["Ecossistema PicFun", "Criadoras", "Lives & TikTok", "Academy & Operação", "Monetização Sustentável"],
+    tags: ["Ecossistema PicFun", "Criadoras", "Lives & TikTok", "Academy", "Monetização"],
     highlight: true,
     color: "pink",
     mockupGradient: "from-pink-900/40 via-purple-900/30 to-black",
-    coverImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop"
+    coverImage: "/picfun-cover.jpg"
   },
   {
     title: "Sentinnell Brands",
@@ -157,7 +157,7 @@ const Projects: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
               className={`glass-card rounded-2xl overflow-hidden group relative flex flex-col h-full border border-white/10 hover:border-neon-500/40 transition-all duration-300 ${
-                project.highlight ? 'border-pink-500/50 shadow-[0_0_35px_rgba(236,72,153,0.2)] md:col-span-2 md:flex-row' : ''
+                project.highlight ? 'border-pink-500/50 shadow-[0_0_35px_rgba(236,72,153,0.2)] md:col-span-2 md:grid md:grid-cols-12' : ''
               }`}
             >
               {/* Gloss Morph Highlight */}
@@ -173,18 +173,18 @@ const Projects: React.FC = () => {
                   'bg-gradient-to-r from-neon-500 to-transparent opacity-100'
               }`}></div>
               
-              {/* Mockup Preview Header */}
-              <div className={`w-full h-44 bg-gradient-to-br ${project.mockupGradient} relative border-b border-white/10 flex flex-col justify-between p-4 overflow-hidden`}>
+              {/* Mockup Preview Header / Image Container */}
+              <div className={`${project.highlight ? 'md:col-span-5 min-h-[240px] md:min-h-full' : 'w-full h-44'} bg-gradient-to-br ${project.mockupGradient} relative border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-between p-4 overflow-hidden`}>
                 {project.coverImage && (
                   <div className="absolute inset-0 z-0">
-                    <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                   </div>
                 )}
                 <div className="flex items-center justify-between z-10">
                   <div className="flex items-center gap-2 bg-black/70 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
                     <Monitor size={12} className="text-neon-400" />
-                    <span className="text-[10px] font-mono text-gray-300 tracking-wider truncate max-w-[180px]">{project.domain}</span>
+                    <span className="text-[10px] font-mono text-gray-300 tracking-wider truncate max-w-[160px]">{project.domain}</span>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-neon-500 group-hover:text-black transition-all">
                     <ExternalLink size={14} />
@@ -202,32 +202,34 @@ const Projects: React.FC = () => {
                 </div>
               </div>
 
-              <div className={`p-8 flex-1 flex flex-col ${project.highlight ? 'md:justify-center' : ''} relative z-10`}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-3 rounded-xl transition-colors ${
-                      project.color === 'pink' ? 'bg-pink-500/10 text-pink-400' :
-                      project.color === 'cyan' ? 'bg-cyan-500/10 text-cyan-400' :
-                      project.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
-                      project.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
-                      project.color === 'amber' ? 'bg-amber-500/10 text-amber-400' :
-                      'bg-white/5 text-neon-400 group-hover:bg-neon-500 group-hover:text-black'
-                  }`}>
-                    {project.icon}
+              <div className={`${project.highlight ? 'md:col-span-7' : 'flex-1'} p-6 sm:p-8 flex flex-col justify-between relative z-10`}>
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`p-3 rounded-xl transition-colors ${
+                        project.color === 'pink' ? 'bg-pink-500/10 text-pink-400' :
+                        project.color === 'cyan' ? 'bg-cyan-500/10 text-cyan-400' :
+                        project.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
+                        project.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
+                        project.color === 'amber' ? 'bg-amber-500/10 text-amber-400' :
+                        'bg-white/5 text-neon-400 group-hover:bg-neon-500 group-hover:text-black'
+                    }`}>
+                      {project.icon}
+                    </div>
+                    <div>
+                      {project.customTitle ? project.customTitle : (
+                           <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-neon-400 transition-colors">
+                              {project.title}
+                          </h3>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    {project.customTitle ? project.customTitle : (
-                         <h3 className="text-2xl font-bold text-white group-hover:text-neon-400 transition-colors">
-                            {project.title}
-                        </h3>
-                    )}
-                  </div>
+                  
+                  <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
+                    {project.desc}
+                  </p>
                 </div>
-                
-                <p className={`text-gray-400 text-sm mb-6 flex-1 leading-relaxed ${project.highlight ? 'text-base max-w-xl' : ''}`}>
-                  {project.desc}
-                </p>
 
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-2 mt-4">
                   {project.tags.map(tag => (
                     <span key={tag} className={`text-xs font-mono px-2.5 py-1 rounded-md border ${
                         project.color === 'pink' 
